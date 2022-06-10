@@ -28,9 +28,9 @@
         <relationship name="employee" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="position" inverseEntity="Employee"/>
     </entity>
     <elements>
-        <element name="Group" positionX="134.7354125976562" positionY="53.22760009765625" width="121.4920654296875" height="73"/>
         <element name="Employee" positionX="-54" positionY="-9" width="128" height="238"/>
-        <element name="Position" positionX="132.4229125976562" positionY="243.43408203125" width="128" height="73"/>
+        <element name="Group" positionX="134.7354125976562" positionY="53.22760009765625" width="121.4920654296875" height="73"/>
         <element name="Location" positionX="136.4071655273438" positionY="140.7286376953125" width="128" height="73"/>
+        <element name="Position" positionX="132.4229125976562" positionY="243.43408203125" width="128" height="73"/>
     </elements>
 </model>

@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    
+    var dataStoreManager = DataStoreManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        var employee = dataStoreManager.obtainMainEmployee()
+        
+        print(employee.location)
     }
-
-
+    
 }
 
