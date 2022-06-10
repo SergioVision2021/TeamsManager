@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="age" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="patronymic" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="rateCoefficient" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rateHour" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="employee" inverseEntity="Group"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="employee" inverseEntity="Location"/>
+        <relationship name="position" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Position" inverseName="employee" inverseEntity="Position"/>
+    </entity>
+    <entity name="Group" representedClassName="Group" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="employee" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="group" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="employee" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="location" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Position" representedClassName="Position" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="employee" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="position" inverseEntity="Employee"/>
+    </entity>
+    <elements>
+        <element name="Group" positionX="134.7354125976562" positionY="53.22760009765625" width="121.4920654296875" height="73"/>
+        <element name="Employee" positionX="-54" positionY="-9" width="128" height="238"/>
+        <element name="Position" positionX="132.4229125976562" positionY="243.43408203125" width="128" height="73"/>
+        <element name="Location" positionX="136.4071655273438" positionY="140.7286376953125" width="128" height="73"/>
+    </elements>
 </model>
