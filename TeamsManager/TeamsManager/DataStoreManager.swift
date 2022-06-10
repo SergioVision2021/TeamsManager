@@ -40,7 +40,7 @@ class DataStoreManager {
         }
     }
     
-    func obtainMainEmployee() -> Employee {
+    func fetchEmployee() -> Employee {
         let position = Position(context: viewContext)
         position.name = "Developer"
 
@@ -66,12 +66,28 @@ class DataStoreManager {
         employee.location = location
         employee.group = group
 
-//        do {
-//            try viewContext.save()
-//        } catch let error{
-//            print(error)
-//        }
-
         return employee
+    }
+    
+    func save() {
+        do {
+            try viewContext.save()
+        } catch let error{
+            print(error)
+        }
+    }
+    
+    func add(name: String) {
+        let group = Group(context: viewContext)
+        group.name = name
+    }
+    
+    func fetchGroup(callback: @escaping (Result<[Group], Error>) -> Void) {
+        do {
+            let data = try viewContext.fetch(Group.fetchRequest())
+            callback(.success(data))
+        } catch let error {
+            callback(.failure(error))
+        }
     }
 }
