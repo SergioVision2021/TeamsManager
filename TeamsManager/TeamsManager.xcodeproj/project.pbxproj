@@ -72,6 +72,52 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D313C791285C64E600175C32 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4EC28523BD50060E78F /* AppDelegate.swift */,
+				D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D313C792285C650700175C32 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D30EB7D4285347E90061DB82 /* Models */,
+				D313C794285C657400175C32 /* Flows */,
+				D313C796285C65CD00175C32 /* Services */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D313C793285C652300175C32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
+				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
+				D3EDD4FD28523BD70060E78F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D313C794285C657400175C32 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4F028523BD50060E78F /* TeamsViewController.swift */,
+				D3EDD4F228523BD50060E78F /* Main.storyboard */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		D313C796285C65CD00175C32 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D3EDD4E028523BD50060E78F = {
 			isa = PBXGroup;
 			children = (
@@ -91,16 +137,10 @@
 		D3EDD4EB28523BD50060E78F /* TeamsManager */ = {
 			isa = PBXGroup;
 			children = (
-				D30EB7D4285347E90061DB82 /* Models */,
-				D3EDD4EC28523BD50060E78F /* AppDelegate.swift */,
-				D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */,
-				D3EDD4F028523BD50060E78F /* TeamsViewController.swift */,
-				D3EDD4F228523BD50060E78F /* Main.storyboard */,
-				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
-				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
-				D3EDD4FD28523BD70060E78F /* Info.plist */,
+				D313C793285C652300175C32 /* Resources */,
+				D313C792285C650700175C32 /* Sources */,
+				D313C791285C64E600175C32 /* Application */,
 				D3EDD4F528523BD50060E78F /* TeamsManager.xcdatamodeld */,
-				D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */,
 			);
 			path = TeamsManager;
 			sourceTree = "<group>";
@@ -337,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -366,7 +406,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
