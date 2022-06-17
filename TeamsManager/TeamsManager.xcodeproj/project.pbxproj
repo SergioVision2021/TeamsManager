@@ -18,7 +18,7 @@
 		D30EB7D6285349AE0061DB82 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */; };
 		D3EDD4ED28523BD50060E78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4EC28523BD50060E78F /* AppDelegate.swift */; };
 		D3EDD4EF28523BD50060E78F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */; };
-		D3EDD4F128523BD50060E78F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4F028523BD50060E78F /* ViewController.swift */; };
+		D3EDD4F128523BD50060E78F /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4F028523BD50060E78F /* TeamsViewController.swift */; };
 		D3EDD4F428523BD50060E78F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EDD4F228523BD50060E78F /* Main.storyboard */; };
 		D3EDD4F728523BD50060E78F /* TeamsManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4F528523BD50060E78F /* TeamsManager.xcdatamodeld */; };
 		D3EDD4F928523BD70060E78F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EDD4F828523BD70060E78F /* Assets.xcassets */; };
@@ -38,7 +38,7 @@
 		D3EDD4E928523BD50060E78F /* TeamsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EDD4EC28523BD50060E78F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D3EDD4F028523BD50060E78F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D3EDD4F028523BD50060E78F /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		D3EDD4F328523BD50060E78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3EDD4F628523BD50060E78F /* TeamsManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamsManager.xcdatamodel; sourceTree = "<group>"; };
 		D3EDD4F828523BD70060E78F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +72,52 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D313C791285C64E600175C32 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4EC28523BD50060E78F /* AppDelegate.swift */,
+				D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D313C792285C650700175C32 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D30EB7D4285347E90061DB82 /* Models */,
+				D313C794285C657400175C32 /* Flows */,
+				D313C796285C65CD00175C32 /* Services */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D313C793285C652300175C32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
+				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
+				D3EDD4FD28523BD70060E78F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D313C794285C657400175C32 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4F028523BD50060E78F /* TeamsViewController.swift */,
+				D3EDD4F228523BD50060E78F /* Main.storyboard */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		D313C796285C65CD00175C32 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D3EDD4E028523BD50060E78F = {
 			isa = PBXGroup;
 			children = (
@@ -91,16 +137,10 @@
 		D3EDD4EB28523BD50060E78F /* TeamsManager */ = {
 			isa = PBXGroup;
 			children = (
-				D30EB7D4285347E90061DB82 /* Models */,
-				D3EDD4EC28523BD50060E78F /* AppDelegate.swift */,
-				D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */,
-				D3EDD4F028523BD50060E78F /* ViewController.swift */,
-				D3EDD4F228523BD50060E78F /* Main.storyboard */,
-				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
-				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
-				D3EDD4FD28523BD70060E78F /* Info.plist */,
+				D313C793285C652300175C32 /* Resources */,
+				D313C792285C650700175C32 /* Sources */,
+				D313C791285C64E600175C32 /* Application */,
 				D3EDD4F528523BD50060E78F /* TeamsManager.xcdatamodeld */,
-				D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */,
 			);
 			path = TeamsManager;
 			sourceTree = "<group>";
@@ -183,7 +223,7 @@
 				D30EB7D6285349AE0061DB82 /* DataStoreManager.swift in Sources */,
 				D30EB7CE285347E40061DB82 /* Location+CoreDataClass.swift in Sources */,
 				D30EB7CC285347E40061DB82 /* Position+CoreDataClass.swift in Sources */,
-				D3EDD4F128523BD50060E78F /* ViewController.swift in Sources */,
+				D3EDD4F128523BD50060E78F /* TeamsViewController.swift in Sources */,
 				D30EB7CD285347E40061DB82 /* Position+CoreDataProperties.swift in Sources */,
 				D3EDD4ED28523BD50060E78F /* AppDelegate.swift in Sources */,
 				D30EB7D1285347E40061DB82 /* Group+CoreDataProperties.swift in Sources */,
@@ -337,17 +377,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.TeamsManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -365,17 +406,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.TeamsManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
