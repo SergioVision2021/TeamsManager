@@ -90,4 +90,25 @@ class DataStoreManager {
             callback(.failure(error))
         }
     }
+    
+    func delete() {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Group")
+        
+        do {
+            let groups = try viewContext.fetch(Group.fetchRequest())
+            
+            for group in groups {
+                viewContext.delete(group)
+                print("delete \(group)")
+            }
+            
+            do {
+                try viewContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 }
