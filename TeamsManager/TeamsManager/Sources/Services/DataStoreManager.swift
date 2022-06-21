@@ -75,9 +75,10 @@ class DataStoreManager {
         } catch let error{
             print(error)
         }
+//        } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
     }
     
-    func add(name: String) {
+    func add(_ name: String) {
         let group = Group(context: viewContext)
         group.name = name
     }
@@ -91,24 +92,13 @@ class DataStoreManager {
         }
     }
     
-    func delete() {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Group")
-        
-        do {
-            let groups = try viewContext.fetch(Group.fetchRequest())
-            
-            for group in groups {
-                viewContext.delete(group)
-                print("delete \(group)")
-            }
-            
-            do {
-                try viewContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+    func delete(_ group: Group) {
+        viewContext.delete(group)
+        print("delete \(group)")
+    }
+    
+    func insert(_ group: Group) {
+        viewContext.insert(group)
+        print("insert \(group)")
     }
 }
