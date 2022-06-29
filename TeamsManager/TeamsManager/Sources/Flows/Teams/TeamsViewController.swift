@@ -201,4 +201,22 @@ extension TeamsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = storyBoard.instantiateViewController(withIdentifier: "IdDetailTeam") as? DetailTeamViewController else { fatalError("Unexpected Index Path")
+        }
+
+        vc.title = data[indexPath.section].name
+        vc.delegate = self
+        show(vc, sender: self)
+    }
+}
+
+// MARK: - Delegates
+extension TeamsViewController: DetailTeamDelegate {
+    func detailTeamDidTapDone(_ sender: UIViewController, _ team: Group) {
+        print("callback")
+    }
 }
