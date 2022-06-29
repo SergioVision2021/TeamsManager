@@ -12,7 +12,7 @@ class TeamsViewController: UIViewController {
 
     // MARK: - Properties
     var dataStoreManager = DataStoreManager()
-    var localData: [Group] = []
+    var data: [Group] = []
     var isNoResult = false
     
     // MARK: - Visual Component
@@ -21,7 +21,11 @@ class TeamsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = view.bounds
+        view.addSubview(tableView)
+        
         fetch()
     }
     
@@ -30,11 +34,12 @@ class TeamsViewController: UIViewController {
         self.dataStoreManager.fetchGroup() { result in
             switch result {
             case .success(let data):
-                print("Success")
+                print("Success Team")
 
                 //Data = [0]
                 guard !data.isEmpty else {
-                    self.configureNoResult()
+                    
+                    self.view = NoResultView(view: self.view).configureNoResult()
                     self.isNoResult = true
                     return
                 }
@@ -46,8 +51,8 @@ class TeamsViewController: UIViewController {
                     self.isNoResult = false
                 }
 
-                data.forEach { print("Fetch: \($0.name)") }
-                self.localData = data
+                data.forEach { print("Fetch Team: \($0.name)") }
+                self.data = data
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -59,44 +64,37 @@ class TeamsViewController: UIViewController {
         }
     }
 
-    func add(name: String) {
+    private func add(_ name: String) {
         dataStoreManager.add(name)
-        dataStoreManager.save()
+        dataStoreManager.saveContext()
         fetch()
     }
 
-    private func delete(_ group: Group) {
-        dataStoreManager.delete(group)
-        dataStoreManager.save()
+    private func insert(_ obj: Group) {
+        dataStoreManager.insert(obj)
+        dataStoreManager.saveContext()
+        fetch()
+    }
+
+    private func delete(_ obj: Group) {
+        dataStoreManager.delete(obj)
+        dataStoreManager.saveContext()
         fetch()
     }
     
-    private func insert(_ group: Group) {
-        dataStoreManager.insert(group)
-        dataStoreManager.save()
+    private func deleteAll() {
+        dataStoreManager.deleteAll()
+        dataStoreManager.saveContext()
         fetch()
-    }
-
-    func configureNoResult() {
-        let viewResult = makeView()
-        view.addSubview(viewResult)
-
-        let stackView = makeStackView()
-        stackView.addArrangedSubview(makeLabel())
-        stackView.addArrangedSubview(makeImageView())
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        viewResult.addSubview(stackView)
-
-        //Constraints
-        stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
     }
 
     // MARK: - IBAction
     @IBAction func addGroupBarButton(_ sender: Any) {
         present(makeAlertController(), animated: true, completion: nil)
     }
-
+    @IBAction func deleteAllGroupBarButton(_ sender: Any) {
+        deleteAll()
+    }
     @IBAction func editBarButton(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
     }
@@ -106,12 +104,12 @@ class TeamsViewController: UIViewController {
 extension TeamsViewController {
 
     func makeAlertController() -> UIAlertController {
-        let alertController = UIAlertController(title: "Add new group", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add team", message: nil, preferredStyle: .alert)
 
-        let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
+        let confirmAction = UIAlertAction(title: "Create", style: .default) { (_) in
             if let txtField = alertController.textFields?.first,
                let text = txtField.text {
-                self.add(name: text)
+                self.add(text)
             }
         }
 
@@ -124,34 +122,6 @@ extension TeamsViewController {
         alertController.addAction(cancelAction)
         
         return alertController
-    }
-
-    func makeView() -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        view.backgroundColor = .white
-        view.tag = 100
-        return view
-    }
-
-    func makeImageView() -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: "Image.png"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }
-
-    func makeLabel() -> UILabel {
-        let label = UILabel()
-        label.text = "No result"
-        return label
-    }
-
-    func makeStackView() -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing = 16.0
-        return stackView
     }
 
     func makeTableView() -> UITableView {
@@ -167,29 +137,11 @@ extension TeamsViewController {
     }
 }
 
-// MARK: - TableView
-extension TeamsViewController {
-
-    func addTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.frame = view.bounds
-        view.addSubview(tableView)
-    }
-    
-    func configureCell(_ cell: TeamCell, _ indexPath: IndexPath) {
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        let team = localData[indexPath.section]
-        cell.nameTeam.text = team.name
-    }
-}
-
 // MARK: - TableView DataSource
 extension TeamsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return localData.count
+        return data.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -197,9 +149,12 @@ extension TeamsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.teamCellIdentifier, for: indexPath) as? TeamCell else { fatalError("Unexpected Index Path") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.teamCellIdentifier, for: indexPath) as? TeamCell else { fatalError("Xib doesn't exist - Unexpected Index Path") }
  
-        configureCell(cell, indexPath)
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        let team = data[indexPath.section]
+        cell.nameTeam.text = team.name
+        
         return cell
     }
     
@@ -208,7 +163,7 @@ extension TeamsViewController: UITableViewDataSource {
 
             tableView.beginUpdates()
 
-            let selectGroup = localData[indexPath.section]
+            let selectGroup = data[indexPath.section]
             delete(selectGroup)
             print("Delete section: \(indexPath.section)")
             
@@ -222,10 +177,13 @@ extension TeamsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let itemToMove = localData[sourceIndexPath.section]
+        let itemToMove = data[sourceIndexPath.section]
         
-        localData.remove(at: sourceIndexPath.section)
-        localData.insert(itemToMove, at: destinationIndexPath.section)
+//        dataStoreManager.delete(itemToMove)
+//        dataStoreManager.insert(itemToMove)
+
+        data.remove(at: sourceIndexPath.section)
+        data.insert(itemToMove, at: destinationIndexPath.section)
     }
 }
 
@@ -244,4 +202,3 @@ extension TeamsViewController: UITableViewDelegate {
         return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
     }
 }
-
