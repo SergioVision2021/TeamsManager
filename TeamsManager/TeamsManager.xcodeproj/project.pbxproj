@@ -16,6 +16,16 @@
 		D30EB7D2285347E40061DB82 /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EB7CA285347E40061DB82 /* Employee+CoreDataClass.swift */; };
 		D30EB7D3285347E40061DB82 /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EB7CB285347E40061DB82 /* Employee+CoreDataProperties.swift */; };
 		D30EB7D6285349AE0061DB82 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */; };
+		D313C798285C6C7D00175C32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C797285C6C7D00175C32 /* Constants.swift */; };
+		D313C7A7285C9C5C00175C32 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C7A5285C9C5C00175C32 /* TeamCell.swift */; };
+		D313C7A8285C9C5C00175C32 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D313C7A6285C9C5C00175C32 /* TeamCell.xib */; };
+		D313C7AC2860659200175C32 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C7AB2860659200175C32 /* DetailTeamViewController.swift */; };
+		D313C7AE2860666800175C32 /* DetailTeamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C7AD2860666800175C32 /* DetailTeamDelegate.swift */; };
+		D33CEE732861E69800C6FB71 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CEE722861E69800C6FB71 /* ProfileViewController.swift */; };
+		D3C0590A286AE5910067931E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C05909286AE5910067931E /* Service.swift */; };
+		D3C05911286AF8490067931E /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C05910286AF8490067931E /* NoResultView.swift */; };
+		D3C05919286B2BEF0067931E /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C05917286B2BEF0067931E /* EmployeeCell.swift */; };
+		D3C0591A286B2BEF0067931E /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C05918286B2BEF0067931E /* EmployeeCell.xib */; };
 		D3EDD4ED28523BD50060E78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4EC28523BD50060E78F /* AppDelegate.swift */; };
 		D3EDD4EF28523BD50060E78F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */; };
 		D3EDD4F128523BD50060E78F /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EDD4F028523BD50060E78F /* TeamsViewController.swift */; };
@@ -35,6 +45,16 @@
 		D30EB7CA285347E40061DB82 /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D30EB7CB285347E40061DB82 /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
+		D313C797285C6C7D00175C32 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D313C7A5285C9C5C00175C32 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		D313C7A6285C9C5C00175C32 /* TeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
+		D313C7AB2860659200175C32 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
+		D313C7AD2860666800175C32 /* DetailTeamDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamDelegate.swift; sourceTree = "<group>"; };
+		D33CEE722861E69800C6FB71 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D3C05909286AE5910067931E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D3C05910286AF8490067931E /* NoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
+		D3C05917286B2BEF0067931E /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		D3C05918286B2BEF0067931E /* EmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		D3EDD4E928523BD50060E78F /* TeamsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EDD4EC28523BD50060E78F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3EDD4EE28523BD50060E78F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,9 +104,11 @@
 		D313C792285C650700175C32 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D313C79B285C730100175C32 /* View */,
 				D30EB7D4285347E90061DB82 /* Models */,
 				D313C794285C657400175C32 /* Flows */,
 				D313C796285C65CD00175C32 /* Services */,
+				D313C797285C6C7D00175C32 /* Constants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -104,7 +126,10 @@
 		D313C794285C657400175C32 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				D3EDD4F028523BD50060E78F /* TeamsViewController.swift */,
+				D3C0590F286AF81F0067931E /* Teams */,
+				D313C7AB2860659200175C32 /* DetailTeamViewController.swift */,
+				D313C7AD2860666800175C32 /* DetailTeamDelegate.swift */,
+				D33CEE722861E69800C6FB71 /* ProfileViewController.swift */,
 				D3EDD4F228523BD50060E78F /* Main.storyboard */,
 			);
 			path = Flows;
@@ -113,9 +138,38 @@
 		D313C796285C65CD00175C32 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D3C05909286AE5910067931E /* Service.swift */,
 				D30EB7D5285349AE0061DB82 /* DataStoreManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D313C79B285C730100175C32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D313C79C285C730600175C32 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D313C79C285C730600175C32 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D313C7A5285C9C5C00175C32 /* TeamCell.swift */,
+				D313C7A6285C9C5C00175C32 /* TeamCell.xib */,
+				D3C05917286B2BEF0067931E /* EmployeeCell.swift */,
+				D3C05918286B2BEF0067931E /* EmployeeCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D3C0590F286AF81F0067931E /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				D3EDD4F028523BD50060E78F /* TeamsViewController.swift */,
+				D3C05910286AF8490067931E /* NoResultView.swift */,
+			);
+			path = Teams;
 			sourceTree = "<group>";
 		};
 		D3EDD4E028523BD50060E78F = {
@@ -203,9 +257,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D313C7A8285C9C5C00175C32 /* TeamCell.xib in Resources */,
 				D3EDD4FC28523BD70060E78F /* LaunchScreen.storyboard in Resources */,
 				D3EDD4F928523BD70060E78F /* Assets.xcassets in Resources */,
 				D3EDD4F428523BD50060E78F /* Main.storyboard in Resources */,
+				D3C0591A286B2BEF0067931E /* EmployeeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +274,14 @@
 			files = (
 				D30EB7D2285347E40061DB82 /* Employee+CoreDataClass.swift in Sources */,
 				D30EB7D3285347E40061DB82 /* Employee+CoreDataProperties.swift in Sources */,
+				D313C7AC2860659200175C32 /* DetailTeamViewController.swift in Sources */,
+				D313C7AE2860666800175C32 /* DetailTeamDelegate.swift in Sources */,
+				D313C7A7285C9C5C00175C32 /* TeamCell.swift in Sources */,
+				D3C0590A286AE5910067931E /* Service.swift in Sources */,
 				D30EB7CF285347E40061DB82 /* Location+CoreDataProperties.swift in Sources */,
+				D33CEE732861E69800C6FB71 /* ProfileViewController.swift in Sources */,
 				D30EB7D0285347E40061DB82 /* Group+CoreDataClass.swift in Sources */,
+				D3C05919286B2BEF0067931E /* EmployeeCell.swift in Sources */,
 				D30EB7D6285349AE0061DB82 /* DataStoreManager.swift in Sources */,
 				D30EB7CE285347E40061DB82 /* Location+CoreDataClass.swift in Sources */,
 				D30EB7CC285347E40061DB82 /* Position+CoreDataClass.swift in Sources */,
@@ -227,7 +289,9 @@
 				D30EB7CD285347E40061DB82 /* Position+CoreDataProperties.swift in Sources */,
 				D3EDD4ED28523BD50060E78F /* AppDelegate.swift in Sources */,
 				D30EB7D1285347E40061DB82 /* Group+CoreDataProperties.swift in Sources */,
+				D313C798285C6C7D00175C32 /* Constants.swift in Sources */,
 				D3EDD4F728523BD50060E78F /* TeamsManager.xcdatamodeld in Sources */,
+				D3C05911286AF8490067931E /* NoResultView.swift in Sources */,
 				D3EDD4EF28523BD50060E78F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.TeamsManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -417,7 +481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.TeamsManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

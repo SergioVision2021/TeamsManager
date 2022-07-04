@@ -39,76 +39,117 @@ class DataStoreManager {
             }
         }
     }
-    
-    func fetchEmployee() -> Employee {
-        let position = Position(context: viewContext)
-        position.name = "Developer"
 
-        let location = Location(context: viewContext)
-        location.name = "Gomel"
-
-        let group = Group(context: viewContext)
-        group.name = "Intervale"
-
-        let employee = Employee(context: viewContext)
-        employee.firstName = "Ivan"
-        employee.lastName = "Ivanovich"
-        employee.patronymic = "Ivanov"
-        employee.experience = 1
-        employee.rateCoefficient = false
-        employee.rateHour = 0
-        employee.age = 1
-        employee.email = "name@email.com"
-        employee.phone = "0"
-        employee.about = ""
-        
-        employee.position = position
-        employee.location = location
-        employee.group = group
-
-        return employee
-    }
-    
-    func save() {
+    func fetchFilter(callback: @escaping (Result<[Employee], Error>) -> Void) {
         do {
-            try viewContext.save()
-        } catch let error{
-            print(error)
+            let request = Employee.fetchRequest()
+
+            //Set the filtering and sorting on the request
+            //let predicate = NSPredicate(format: "firstName CONTAINS 'AepdLC'")
+
+                //Get groups
+                //Take one
+                let reqGroup = Group.fetchRequest()
+                let d = try viewContext.fetch(reqGroup)
+                let gr = d[0]
+            
+            
+            let predicate = NSPredicate(format: "%K == %@", "group.name", "Intervale")
+            request.predicate = predicate
+            
+//            let sort = NSSortDescriptor(key: "name", ascending: true)
+//            request.sortDescriptors = [sort]
+            
+            let data = try viewContext.fetch(request)
+            
+            
+            callback(.success(data))
+        } catch let error {
+                callback(.failure(error))
         }
     }
     
-    func add(name: String) {
-        let group = Group(context: viewContext)
-        group.name = name
-    }
-    
-    func fetchGroup(callback: @escaping (Result<[Group], Error>) -> Void) {
+    func fetchEmployee(callback: @escaping (Result<[Employee], Error>) -> Void) {
         do {
-            let data = try viewContext.fetch(Group.fetchRequest())
+            //let fetchRequest: NSFetchRequest<Employee> = Employee.fetchRequest()
+            
+            let data = try viewContext.fetch(Employee.fetchRequest())
             callback(.success(data))
         } catch let error {
             callback(.failure(error))
         }
     }
     
-    func delete() {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Group")
-        
+    func fetchGroup(callback: @escaping (Result<[Group], Error>) -> Void) {
         do {
-            let groups = try viewContext.fetch(Group.fetchRequest())
+            let request = Group.fetchRequest()
             
-            for group in groups {
-                viewContext.delete(group)
-                print("delete \(group)")
-            }
+            //Sorting
+            let sort = NSSortDescriptor(key: "name", ascending: true)
+            request.sortDescriptors = [sort]
             
-            do {
-                try viewContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            //Fetching
+            let data = try viewContext.fetch(request)
+            callback(.success(data))
+        } catch let error {
+            callback(.failure(error))
         }
+    }
+
+    func add(_ name: String) {
+        let obj = Group(context: viewContext)
+        obj.name = name
+    }
+    
+    func insert(_ obj: Group) {
+        viewContext.insert(obj)
+        print("insert \(obj)")
+    }
+    
+    func delete(_ obj: Group) {
+        viewContext.delete(obj)
+        print("delete \(obj)")
+    }
+
+    func deleteAll() {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Group.fetchRequest())
+        do {
+            try viewContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    func addDefault() {
+        
+        func randomString(length: Int) -> String {
+          let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          return String((0..<length).map{ _ in letters.randomElement()! })
+        }
+        
+        let position = Position(context: viewContext)
+        position.name = "HR"
+        
+        let location = Location(context: viewContext)
+        location.name = "Gomel"
+        
+        let group = Group(context: viewContext)
+        group.name = "Intervale"
+        
+        let obj = Employee(context: viewContext)
+        obj.firstName = randomString(length: 6)
+        obj.lastName = "lastName"
+        obj.patronymic = "patronynic"
+        obj.experience = 1
+        obj.rateCoefficient = false
+        obj.rateHour = 0
+        obj.age = 1
+        obj.email = "name@email.com"
+        obj.phone = "0"
+        obj.about = ""
+        
+        obj.position = position
+        obj.location = location
+        obj.group = group
     }
 }
