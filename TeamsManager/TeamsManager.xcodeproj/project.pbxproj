@@ -61,7 +61,7 @@
 		D3EDD4F628523BD50060E78F /* TeamsManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamsManager.xcdatamodel; sourceTree = "<group>"; };
 		D3EDD4F828523BD70060E78F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EDD4FB28523BD70060E78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D3EDD4FD28523BD70060E78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F454922878507C00ECC993 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +114,9 @@
 		D313C793285C652300175C32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3F454922878507C00ECC993 /* Info.plist */,
 				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
 				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
-				D3EDD4FD28523BD70060E78F /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
