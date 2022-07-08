@@ -47,18 +47,16 @@ class DataStoreManager {
             //Set the filtering and sorting on the request
             //let predicate = NSPredicate(format: "firstName CONTAINS 'AepdLC'")
 
-                //Get groups
-                //Take one
                 let reqGroup = Group.fetchRequest()
-                let d = try viewContext.fetch(reqGroup)
-                let gr = d[0]
+                let allGroup = try viewContext.fetch(reqGroup)
+                let firstGroup = allGroup[0]
             
             
             let predicate = NSPredicate(format: "%K == %@", "group.name", "Intervale")
             request.predicate = predicate
             
-//            let sort = NSSortDescriptor(key: "name", ascending: true)
-//            request.sortDescriptors = [sort]
+            //   let sort = NSSortDescriptor(key: "name", ascending: true)
+            //   request.sortDescriptors = [sort]
             
             let data = try viewContext.fetch(request)
             

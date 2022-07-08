@@ -16,16 +16,28 @@ class TeamsViewController: UIViewController {
     var isNoResult = false
     
     // MARK: - Visual Component
-    private lazy var tableView = makeTableView()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.frame = view.bounds
-        view.addSubview(tableView)
         
+        let nib = UINib(nibName: "TeamCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: Constants.teamCellIdentifier)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.sectionFooterHeight = 0
+        
+        tableView.frame = view.bounds
+        
+        return tableView
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.addSubview(tableView)
         fetch()
     }
     
@@ -123,23 +135,10 @@ extension TeamsViewController {
         
         return alertController
     }
-
-    func makeTableView() -> UITableView {
-        let table = UITableView(frame: CGRect.zero, style: .insetGrouped)
-        table.translatesAutoresizingMaskIntoConstraints = false
-        table.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        table.sectionFooterHeight = 0               //---
-
-        let nib = UINib(nibName: "TeamCell", bundle: nil)
-        table.register(nib, forCellReuseIdentifier: Constants.teamCellIdentifier)
-
-        return table
-    }
 }
 
 // MARK: - TableView DataSource
 extension TeamsViewController: UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
@@ -150,14 +149,14 @@ extension TeamsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.teamCellIdentifier, for: indexPath) as? TeamCell else { fatalError("Xib doesn't exist - Unexpected Index Path") }
- 
+
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         let team = data[indexPath.section]
         cell.nameTeam.text = team.name
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 
@@ -166,24 +165,25 @@ extension TeamsViewController: UITableViewDataSource {
             let selectGroup = data[indexPath.section]
             delete(selectGroup)
             print("Delete section: \(indexPath.section)")
-            
+
             tableView.deleteSections(IndexSet(integer: indexPath.section), with: .top)
             tableView.endUpdates()
         }
     }
-    
+
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let itemToMove = data[sourceIndexPath.section]
-        
-//        dataStoreManager.delete(itemToMove)
-//        dataStoreManager.insert(itemToMove)
 
-        data.remove(at: sourceIndexPath.section)
-        data.insert(itemToMove, at: destinationIndexPath.section)
+        //  dataStoreManager.delete(itemToMove)
+        //  dataStoreManager.insert(itemToMove)
+
+        data.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        //  data.remove(at: sourceIndexPath.section)
+        //  data.insert(itemToMove, at: destinationIndexPath.section)
     }
 }
 
@@ -201,7 +201,7 @@ extension TeamsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
