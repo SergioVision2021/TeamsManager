@@ -22,6 +22,7 @@
 		D313C7AC2860659200175C32 /* DetailTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C7AB2860659200175C32 /* DetailTeamViewController.swift */; };
 		D313C7AE2860666800175C32 /* DetailTeamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D313C7AD2860666800175C32 /* DetailTeamDelegate.swift */; };
 		D33CEE732861E69800C6FB71 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CEE722861E69800C6FB71 /* ProfileViewController.swift */; };
+		D35B8E0E2878609F00C5F629 /* InfoProd.plist in Resources */ = {isa = PBXBuildFile; fileRef = D35B8E0D2878609F00C5F629 /* InfoProd.plist */; };
 		D3C05911286AF8490067931E /* NoResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C05910286AF8490067931E /* NoResultView.swift */; };
 		D3C05919286B2BEF0067931E /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C05917286B2BEF0067931E /* EmployeeCell.swift */; };
 		D3C0591A286B2BEF0067931E /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C05918286B2BEF0067931E /* EmployeeCell.xib */; };
@@ -50,6 +51,7 @@
 		D313C7AB2860659200175C32 /* DetailTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamViewController.swift; sourceTree = "<group>"; };
 		D313C7AD2860666800175C32 /* DetailTeamDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTeamDelegate.swift; sourceTree = "<group>"; };
 		D33CEE722861E69800C6FB71 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D35B8E0D2878609F00C5F629 /* InfoProd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoProd.plist; sourceTree = "<group>"; };
 		D3C05910286AF8490067931E /* NoResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultView.swift; sourceTree = "<group>"; };
 		D3C05917286B2BEF0067931E /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		D3C05918286B2BEF0067931E /* EmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
@@ -61,7 +63,6 @@
 		D3EDD4F628523BD50060E78F /* TeamsManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamsManager.xcdatamodel; sourceTree = "<group>"; };
 		D3EDD4F828523BD70060E78F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EDD4FB28523BD70060E78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D3F454922878507C00ECC993 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +115,7 @@
 		D313C793285C652300175C32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D3F454922878507C00ECC993 /* Info.plist */,
+				D35B8E0D2878609F00C5F629 /* InfoProd.plist */,
 				D3EDD4F828523BD70060E78F /* Assets.xcassets */,
 				D3EDD4FA28523BD70060E78F /* LaunchScreen.storyboard */,
 			);
@@ -255,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D313C7A8285C9C5C00175C32 /* TeamCell.xib in Resources */,
+				D35B8E0E2878609F00C5F629 /* InfoProd.plist in Resources */,
 				D3EDD4FC28523BD70060E78F /* LaunchScreen.storyboard in Resources */,
 				D3EDD4F928523BD70060E78F /* Assets.xcassets in Resources */,
 				D3EDD4F428523BD50060E78F /* Main.storyboard in Resources */,
@@ -437,7 +439,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/InfoProd.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -466,7 +468,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UX23FZ642;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TeamsManager/Resources/Info.plist;
+				INFOPLIST_FILE = TeamsManager/Resources/InfoProd.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
